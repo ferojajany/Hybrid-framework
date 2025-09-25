@@ -39,9 +39,14 @@ public class ExcelReader {
     public XSSFSheet getExcelSheetTabTable(String file, String excelName,String sheetName) {
         try {
             FileInputStream fis = getFileInputStreamPath(file);
+
+           // XSSFWorkbook → a class from Apache POI that represents an Excel workbook (for .xlsx files).
+
             XSSFWorkbook workbook = new XSSFWorkbook(fis);
+            //retrieves a specific sheet by its name
+
             XSSFSheet sheet = workbook.getSheet(sheetName);
-            int lastColNum = sheet.getRow(0).getFirstCellNum();
+            int lastColNum = sheet.getRow(0).getLastCellNum();
             DataFormatter dataFormatter = new DataFormatter();
 
             for (Row nextRow : sheet) {
