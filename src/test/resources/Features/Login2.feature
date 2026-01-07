@@ -4,7 +4,7 @@ Feature: Login functionality for Kapruka  website
    Given I login with the webside
     When User enters "<email>" and "<password>"
     Then User clicks on the login button
-    Then User should see"<errorMasseg>"
+    Then User should see"<errorMassege>"
     Examples:
     | email               | password  | errorMassege             |
     | feroja@gmail.com    | 123456    | Sorry, we did not find an account for that e-mail address|
