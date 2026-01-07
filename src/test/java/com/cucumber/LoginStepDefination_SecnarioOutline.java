@@ -38,24 +38,24 @@ public class LoginStepDefination_SecnarioOutline {
     }
 
     @Then("User should see{string}")
-    public void user_should_see_valide_credentilas_massege(String errorMassegText) {
+    public void user_should_see_valide_credentilas_massege(String errorMassegeText) {
         String actulemassege = loginPage.getErrorMassege();
         System.out.println(actulemassege);
 
 
-        if (actulemassege.equals(errorMassegText)) {
-            Assert.assertEquals(actulemassege,errorMassegText,"Fail: Message not matched.");
+        if (actulemassege.equals(errorMassegeText)) {
+            Assert.assertEquals(actulemassege,errorMassegeText,"Fail: Message not matched.");
 
-        } else if (actulemassege.equals(errorMassegText)) {
-            Assert.assertEquals(actulemassege,errorMassegText,"Fail: Message not matched.");
+        } else if (actulemassege.equals(errorMassegeText)) {
+            Assert.assertEquals(actulemassege,errorMassegeText,"Fail: Message not matched.");
 
-        } else if (actulemassege.equals(errorMassegText)) {
+        } else if (actulemassege.equals(errorMassegeText)) {
 
-            Assert.assertEquals(actulemassege,errorMassegText,"Fail: Message not matched.");
+            Assert.assertEquals(actulemassege,errorMassegeText,"Fail: Message not matched.");
 
-        } else if (actulemassege.equals(errorMassegText)) {
+        } else if (actulemassege.equals(errorMassegeText)) {
 
-            Assert.assertEquals(actulemassege,errorMassegText,"Fail: Message not matched.");
+            Assert.assertEquals(actulemassege,errorMassegeText,"Fail: Message not matched.");
 
         }
         driver.quit();
