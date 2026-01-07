@@ -6,7 +6,7 @@ Feature: Login functionality for Kapruka  website
     Then User clicks on the login button
     Then User should see"<errorMasseg>"
     Examples:
-    | email               | password  | errorMasseg             |
+    | email               | password  | errorMassege             |
     | feroja@gmail.com    | 123456    | Sorry, we did not find an account for that e-mail address|
     | jany@gmail.com      | 7655432   | Sorry, we did not find an account for that e-mail address.|
     | admin@gmail.com     | valid@6789 | Your password is wrong. Please try again.|
