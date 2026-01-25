@@ -1,7 +1,5 @@
 package com.cucumber.comonServieses;
 
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.DataFormatter;
@@ -10,14 +8,12 @@ import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.testng.annotations.DataProvider;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.Objects;
 
-public class ExcelReader {
+public class ExcelHelper {
     /**
      *read an excel file
      */
@@ -46,15 +42,18 @@ public class ExcelReader {
             //retrieves a specific sheet by its name
 
             XSSFSheet sheet = workbook.getSheet(sheetName);
-            int lastColNum = sheet.getRow(0).getLastCellNum();
+            int lastColNum = sheet.getLastRowNum();
+            //getRow(0).getLastCellNum();
+            // if cell is numeric,convert it to string
             DataFormatter dataFormatter = new DataFormatter();
 
             for (Row nextRow : sheet) {
                 for (int colNum = 1; colNum < lastColNum; colNum++) {
+                    //if cell is blank ,make it an empty string
                     Cell cell = nextRow.getCell(colNum, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK);
                     if (Objects.requireNonNull(cell.getCellType()) == CellType.BLANK) {
                         cell.setCellValue("");
-                    } else if(Objects.requireNonNull(cell.getCellType()) == CellType.NUMERIC) {
+                    }else if(Objects.requireNonNull(cell.getCellType()) == CellType.NUMERIC) {
                         String numericAsString = dataFormatter.formatCellValue(cell);
                         cell.setCellValue(numericAsString);
                     }

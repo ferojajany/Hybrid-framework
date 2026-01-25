@@ -121,7 +121,7 @@ public class Loginpage extends Base {
      * @param input
      */
     public void enterSearchText(String input) throws InterruptedException {
-        WebElement serchbutton = driver.findElement(By.name("searchQuery"));
+        WebElement serchbutton = driver.findElement(By.id("search-input"));
         serchbutton.sendKeys(input,Keys.ENTER);
 
     }
@@ -150,6 +150,7 @@ public class Loginpage extends Base {
         JavascriptExecutor js = (JavascriptExecutor) driver;
        WebElement clickbutton = driver.findElement(By.xpath("//h2[normalize-space()='Top Same Day Delivery Products on Kapruka']"));
        js.executeScript("arguments[0].scrollIntoView(true);",clickbutton);
+
     }
     public List<WebElement> gatTableData(){
      return driver.findElements(By.xpath("//h2[normalize-space()='Top Same Day Delivery Products on Kapruka']//following::table//tr"));
@@ -162,6 +163,17 @@ public class Loginpage extends Base {
         return driver.findElements(By.tagName("a"));
 
        }
+
+    public void varify(String result) {
+        String actule = null;
+        try {
+            actule = driver.findElement(By.xpath("//b[text()='Order History']")).getText();
+        } catch (Exception e) {
+
+            System.out.println(e.getMessage());
+        }
+        Assert.assertEquals(actule, result, "not match");
+    }
 
 
 

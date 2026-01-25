@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.stream.Stream;
 
-public class PDFReader {
+public class PDFHelper {
     public List<String> getPDFMathod(String path) throws IOException {
         File file = new File(path);
         //For loading file
