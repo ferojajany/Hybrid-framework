@@ -17,7 +17,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Objects;
 
-public class ExcelReader {
+public class ExcelHelper {
     /**
      *read an excel file
      */
