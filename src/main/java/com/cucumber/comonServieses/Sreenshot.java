@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 import java.io.File;
 import java.io.IOException;
 
-public class Screenshot {
+public class Sreenshot {
     static void ab(WebDriver driver, String abFilename) throws IOException {
         TakesScreenshot screenshot = (TakesScreenshot) driver;
         File pictur = screenshot.getScreenshotAs(OutputType.FILE);
